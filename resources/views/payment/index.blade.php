@@ -2,7 +2,9 @@
 @section('content')
 <div class="col-md-12">
     <h1>Crear Pago</h1>
-
+    @if(Session::has('error'))
+        <p class="alert alert-danger">{{ Session::get('error') }}</p>
+    @endif
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

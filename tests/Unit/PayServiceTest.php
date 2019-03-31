@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Buyer;
 use App\Services\PayService;
 use Illuminate\Support\Facades\App;
 use Tests\TestCase;
@@ -13,7 +14,7 @@ class PayServiceTest extends TestCase
      *
      * @return void
      */
-    /*public function testMakeRequest()
+    public function testMakeRequest()
     {
         $placetoService = App::make(PayService::class);
         $result=$placetoService->makeSession(['currency'=>'COP','total'=>'10000']);
@@ -24,35 +25,36 @@ class PayServiceTest extends TestCase
         }
         $this->assertIsArray($result);
     }
-*/
-    /*  public function testCreateSession()
+
+      public function testCreateSession()
       {
           $placetoService = App::make(PayService::class);
-          $buyer=new $buyer();
+          $buyer=new Buyer();
           $buyer->document='1040030020';
           $buyer->document_type='CC';
           $buyer->name='John';
           $buyer->surname='Doe';
           $buyer->email='johndoe@example.com';
           $buyer->movile='9865322645';
+          $buyer->address = 'habana cuba';
+          $buyer->city = 'habana';
+          $buyer->country = 'cuba';
           $result=$placetoService->createSession($buyer,['currency'=>'COP','total'=>'10000']);
           $this->assertIsObject($result);
 
-      }*/
-  /*  public function testUpdatePaymentInfo()
+      }
+    public function testUpdatePaymentInfo()
     {
-
         $placetoService = App::make(PayService::class);
         $result = $placetoService->updatePaymentInfo();
         $this->assertIsArray($result);
         $this->assertArrayHasKey('request', $result);
 
 
-    }*/
+    }
 
     public function testListPayment()
     {
-
         $placetoService = App::make(PayService::class);
         $result = $placetoService->listPayment();
         $this->assertIsArray($result);
